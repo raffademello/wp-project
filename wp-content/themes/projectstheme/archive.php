@@ -25,29 +25,32 @@
 		<?php if (have_posts()) : ?>
 			<main class="w-full">
 				<div class="container mx-auto">
-					<h5 class="font-bold text-2xl border-solid border-b-2 border-gray-500 pb-3 uppercase">Resultado da pesquisa: <span id="queryResult"></div></h5>
-					<div class="py-5 grid  gap-10">
-						<?php while (have_posts()) : the_post(); ?>
-							<div class="flex flex-col lg:flex-row items-center rounded-md overflow-hidden shadow-lg p-5">
-
-								<?php if (has_post_thumbnail($post->ID)) : ?>
-									<?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
-									<div class="custom-bg w-full lg:w-44 h-44 bg-no-repeat bg-center bg-contain" style="background-image: url('<?php echo $image[0]; ?>')">
-
-									</div>
-								<?php endif; ?>
-
-								<div class="py-4 px-4 bg-white">
-									<h3 class="text-lg font-semibold text-gray-600"><?php the_title(); ?></h3>
-									<p class="mt-4 text-md font-thin"><?php echo get_the_excerpt(); ?><br /><a class="text-blue-400" href="<?php the_permalink(); ?>">Ler descrição completa</a></p>
-								</div>
-							</div>
-						<?php endwhile; ?>
-					</div>
+					<h5 class="font-bold text-2xl border-solid border-b-2 border-gray-500 pb-3 uppercase">Resultado da pesquisa: <span id="queryResult">
 				</div>
-			</main>
-		<?php endif; ?>
+				</h5>
+				<div class="py-5 grid  gap-10">
+					<?php while (have_posts()) : the_post(); ?>
+						<div class="flex relative cursor-pointer flex-col lg:flex-row items-center rounded-md overflow-hidden shadow-lg p-3 hover:bg-gray-50">
+
+							<?php if (has_post_thumbnail($post->ID)) : ?>
+								<?php $image = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'single-post-thumbnail'); ?>
+								<div class="custom-bg w-full lg:w-44 h-44 bg-no-repeat bg-center bg-contain" style="background-image: url('<?php echo $image[0]; ?>')">
+
+								</div>
+							<?php endif; ?>
+
+							<div class="py-4 px-4">
+								<h3 class="text-lg font-semibold text-gray-600"><?php the_title(); ?></h3>
+								<p class="mt-4 text-md font-thin"><?php echo get_the_excerpt(); ?><br /><a class="text-blue-400" href="<?php the_permalink(); ?>">Ler descrição completa</a></p>
+							</div>
+							<a class="absolute w-full h-full inset-x-0 inset-y-0" href="<?php the_permalink(); ?>"></a>
+						</div>
+					<?php endwhile; ?>
+				</div>
 	</div>
+	</main>
+<?php endif; ?>
+</div>
 </div>
 
 <script type="text/javascript">

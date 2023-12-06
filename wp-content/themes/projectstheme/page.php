@@ -25,7 +25,7 @@ $posts = get_posts(array(
 			setup_postdata($post);
 
 		?>
-			<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+			<div class="max-w-sm relative bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 				<a href="<?php the_permalink(); ?>">
 					<?php
 					$imageProject = get_field("imagem");
@@ -40,6 +40,7 @@ $posts = get_posts(array(
 					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><?php the_field("resumo"); ?></p>
 					<small class="text-white">Categoria:<?php the_field("categoria") ?></small>
 				</div>
+				<a class="absolute w-full h-full inset-x-0 inset-y-0" href="<?php the_permalink(); ?>"></a>
 			</div>
 
 		<?php endforeach; ?>

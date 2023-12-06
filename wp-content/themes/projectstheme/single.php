@@ -42,11 +42,11 @@
 					<h6 class="text-xl font-bold text-center lg:text-left border-solid border-b-2 border-gray-600 pb-3 text-gray-600">Projetos Relacionados</h6>
 					<div class="flex items-center lg:items-stretch flex-col lg:flex-row mt-2 lg:mt-10 gap-4">
 						<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
-							<div class="flex flex-col max-w-xs relative items-center">
+							<div class="flex flex-col max-w-xs relative items-center shadow-md p-5 bg-white hover:bg-gray-100">
 								<?php
 								$imageProject = get_field("imagem");
 								if (!empty($imageProject)) : ?>
-									<img class="rounded-md shadow-md max-w-xs" src="<?php echo esc_url($imageProject['url']); ?>" alt="<?php echo esc_attr($imageProject['alt']); ?>" />
+									<img class="rounded-md max-w-xs p-5" src="<?php echo esc_url($imageProject['url']); ?>" alt="<?php echo esc_attr($imageProject['alt']); ?>" />
 								<?php endif; ?>
 								<strong class="my-6 text-xl inline-block text-center text-gray-600"><?php the_field("titulo"); ?></strong>
 								<a class="absolute w-full h-full inset-x-0 inset-y-0" href="<?php the_permalink(); ?>"></a>
